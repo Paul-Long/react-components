@@ -4,15 +4,13 @@ import Table from 'fast-table';
 class BasicTable extends React.Component {
   render() {
     return (
-      <div>
-        <Table
-          columns={columns}
-          dataSource={data}
-          fixedHeader={false}
-          showHeader
-          bordered
-        />
-      </div>
+      <Table
+        columns={columns}
+        dataSource={data}
+        fixedHeader={false}
+        showHeader
+        bordered
+      />
     )
   }
 }

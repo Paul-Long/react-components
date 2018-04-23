@@ -4,15 +4,13 @@ import Table from 'fast-table';
 class FixedHeaderAndColumnTable extends React.Component {
   render() {
     return (
-      <div>
-        <Table
-          columns={columns}
-          dataSource={data}
-          fixedHeader
-          showHeader
-          bordered
-        />
-      </div>
+      <Table
+        columns={columns}
+        dataSource={data}
+        fixedHeader
+        showHeader
+        bordered
+      />
     )
   }
 }
