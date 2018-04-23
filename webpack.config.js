@@ -98,7 +98,7 @@ config.optimization = {
 
 if (ENV === 'development') {
   config.devtool = 'eval-source-map';
-  config.entry.main = ['webpack-hot-middleware/client?reload=true', config.entry.main];
+  config.entry.app = ['webpack-hot-middleware/client?reload=true', config.entry.app];
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
@@ -113,7 +113,7 @@ if (ENV === 'production') {
     new HtmlWebpackPlugin({
       title: 'React Components',
       filename: 'index.html',
-      template: './server/index.html',
+      template: './src/server/index.html',
       inject: true,
       chunksSortMode: function (chunk1, chunk2) {
         const order = ['runtime', 'common', 'app'];

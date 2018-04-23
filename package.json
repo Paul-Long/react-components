@@ -4,7 +4,29 @@
   "description": "react-components",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "better-npm-run start",
+    "deploy": "better-npm-run deploy",
+    "start:prod": "better-npm-run start:prod"
+  },
+  "betterScripts": {
+    "start": {
+      "command": "node index",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "deploy": {
+      "command": "webpack --config ./webpack.config.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "start:prod": {
+      "command": "node index.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -62,7 +84,7 @@
     "render-template": "^1.0.3",
     "shallowequal": "^1.0.2",
     "stats-out-plugin": "^1.0.1",
-    "style-loader": "^0.20.3",
+    "style-loader": "^0.21.0",
     "svg-sprite-loader": "^3.7.3",
     "url-loader": "^1.0.1",
     "webpack": "4.1.1",
