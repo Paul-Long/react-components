@@ -1,7 +1,7 @@
 import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '@containers/app';
+import Routes from './routes';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Routes />, document.getElementById('app'));
 
