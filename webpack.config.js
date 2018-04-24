@@ -18,8 +18,8 @@ const config = {
   },
   output: {
     path: path.resolve(__dirname, 'static'),
-    filename: '[name].js',
-    publicPath: '/'
+    filename: '[name].[hash:8].js',
+    publicPath: ''
   },
   resolve: {
     modules: [
@@ -67,7 +67,7 @@ config.module = {
 config.plugins = [
   new CaseSensitivePathsPlugin(),
   new CleanPlugin([path.resolve(__dirname, 'static')], {verbose: true}),
-  new ExtractTextPlugin({filename: '[name].css', allChunks: true}),
+  new ExtractTextPlugin({filename: '[name].[contenthash:8].css', allChunks: true}),
   new webpack.optimize.ModuleConcatenationPlugin(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(ENV)
