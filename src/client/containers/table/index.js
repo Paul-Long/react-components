@@ -4,6 +4,7 @@ import Header from '@components/header';
 import BasicTable from './basic';
 import FixedHeaderTable from './fixed-header';
 import FixedHeaderAndColumnTable from './fixed-header-column';
+import TableAll from './all';
 import menus from './menus';
 import './table.less';
 
@@ -34,6 +35,7 @@ class TableTab extends React.Component<Props> {
           <Route path='/table/Basic' component={BasicTable} />
           <Route path='/table/FixedHeader' component={FixedHeaderTable} />
           <Route path='/table/FixedHeaderAndColumn' component={FixedHeaderAndColumnTable} />
+          <Route path='/table/all' component={TableAll} />
         </div>
       </div>
     )
