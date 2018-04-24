@@ -57,10 +57,10 @@ const columns = [
 ];
 const data = [];
 
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < 2000; i++) {
   const row = {key: `${i}`};
   for (let j = 0; j < 6; j++) {
-    row[`key${j}`] = Math.random().toString(36).substr(2);
+    row[`key${j}`] = `Row${i}-Col${j}`;
   }
   data.push(row);
 }

@@ -16,6 +16,15 @@ class TableTab extends React.Component<Props> {
     prefixCls: 'app-t'
   };
 
+  constructor(props) {
+    super(props);
+    const history = props.history;
+    const match = props.match || {};
+    if (match.isExact) {
+      history.push('/table/Basic');
+    }
+  }
+
   render() {
     const {prefixCls} = this.props;
     return (
