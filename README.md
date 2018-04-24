@@ -1,2 +1,0 @@
-# react-components
-react components
