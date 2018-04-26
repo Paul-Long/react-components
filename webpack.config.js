@@ -17,9 +17,9 @@ const config = {
     app: path.resolve(__dirname, 'src/client/index.js')
   },
   output: {
-    path: path.resolve(__dirname, 'static'),
+    path: path.resolve(__dirname, 'dist/static'),
     filename: '[name].[hash:8].js',
-    publicPath: ''
+    publicPath: 'static'
   },
   resolve: {
     modules: [
@@ -66,7 +66,7 @@ config.module = {
 // plugins
 config.plugins = [
   new CaseSensitivePathsPlugin(),
-  new CleanPlugin([path.resolve(__dirname, 'static')], {verbose: true}),
+  new CleanPlugin([path.resolve(__dirname, 'dist')], {verbose: true}),
   new ExtractTextPlugin({filename: '[name].[contenthash:8].css', allChunks: true}),
   new webpack.optimize.ModuleConcatenationPlugin(),
   new webpack.DefinePlugin({
@@ -80,7 +80,7 @@ config.plugins = [
     threadPool: happyThreadPool,
     loaders: ['babel-loader']
   }),
-  new webpack.HashedModuleIdsPlugin(),
+  new webpack.HashedModuleIdsPlugin()
 ];
 
 // optimization
@@ -112,7 +112,8 @@ if (ENV === 'production') {
   config.plugins.push(
     new HtmlWebpackPlugin({
       title: 'React Components',
-      filename: 'index.html',
+      filename: '../index.html',
+      favicon: './src/server/favicon.ico',
       template: './src/server/index.html',
       inject: true,
       chunksSortMode: function (chunk1, chunk2) {
