@@ -98,6 +98,8 @@ config.optimization = {
 
 if (ENV === 'development') {
   config.devtool = 'eval-source-map';
+  config.output.path = path.resolve(__dirname, 'dist');
+  config.output.publicPath = '/';
   config.entry.app = ['webpack-hot-middleware/client?reload=true', config.entry.app];
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
 }
