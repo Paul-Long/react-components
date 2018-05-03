@@ -19,25 +19,23 @@
   }
 }
 
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-  border-radius: 10px;
+  background: #393939;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  //border: 1px solid transparent;
-  background-color: #424244;
-  border-radius: 51px;
-  &:active {
-    background-color: #179595;
-  }
+  background-color: #666;
+  border-radius: 4px;
 }
 
-::-webkit-scrollbar-corner {
-  background-color: transparent;
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  background: #202123;
 }
