@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import TableTab from '@containers/table';
+import CalendarTab from '@containers/calendar';
 import Header from '@components/header';
 import menus from './menus';
 import './app.less';
@@ -25,6 +26,7 @@ class App extends React.Component<AppProps> {
         <Header className={`${prefixCls}-header`} menus={menus} />
         <div className={`${prefixCls}-content`}>
           <Route path='/table' component={TableTab} />
+          <Route path='/calendar' component={CalendarTab} />
         </div>
       </div>
     )
