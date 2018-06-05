@@ -1,11 +1,12 @@
 import React from 'react';
-import Calendar from 'rcc-calendar';
+import Calendar, { CalendarType } from 'rcc-calendar';
 
 class Basic extends React.PureComponent {
   render() {
     return (
-      <div>
+      <div style={{ height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Calendar />
+        <Calendar calenderType={CalendarType.ICON} />
       </div>
     );
   }

@@ -1,13 +1,11 @@
 import React from 'react';
-import Calendar from 'rcc-calendar';
-
-const Range = Calendar.Range;
+import Calendar, {PickerType} from 'rcc-calendar';
 
 class RangeDate extends React.PureComponent {
   render() {
     return (
-      <div>
-        <Range />
+      <div style={{height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <Calendar pickerType={PickerType.RANGE} />
       </div>
     );
   }
