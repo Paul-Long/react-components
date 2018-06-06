@@ -23,7 +23,7 @@ class App extends React.Component<AppProps> {
     const {prefixCls} = this.props;
     return (
       <div className={`${prefixCls}`}>
-        <Header className={`${prefixCls}-header`} menus={menus} />
+        <Header className={`${prefixCls}-header`} menus={menus} githubIcon />
         <div className={`${prefixCls}-content`}>
           <Route path='/table' component={TableTab} />
           <Route path='/calendar' component={CalendarTab} />

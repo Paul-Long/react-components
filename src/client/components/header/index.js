@@ -1,16 +1,18 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './header.less';
 
 type Props = {
   className: string,
-  menus: Array
+  menus: Array,
+  githubIcon: boolean,
 }
 
 function Header(props: Props) {
   const {
     className,
-    menus
+    menus,
+    githubIcon,
   } = props;
   return (
     <div className={`ac-header ${className}`}>
@@ -21,8 +23,13 @@ function Header(props: Props) {
           activeClassName='active'
         >{menu.title}</NavLink>
       ))}
+      {githubIcon && (
+        <a className={`${className}-github`} href='https://github.com/Paul-Long/react-components' target='_blank'>
+          <img src='https://github.com/fluidicon.png' width={32} height={32} title='查看源码' />
+        </a>
+      )}
     </div>
-  )
+  );
 }
 
 export default Header;
