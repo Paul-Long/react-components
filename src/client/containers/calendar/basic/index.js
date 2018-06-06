@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendar, { CalendarType } from 'rcc-calendar';
+import Calendar, { CALENDAR_TYPE } from 'rcc-calendar';
 
 class Basic extends React.PureComponent {
   render() {
@@ -14,7 +14,7 @@ class Basic extends React.PureComponent {
         <h2>基本</h2>
         <Calendar />
         <h2>Icon Calendar</h2>
-        <Calendar calendarType={CalendarType.ICON} />
+        <Calendar calendarType={CALENDAR_TYPE.ICON} />
       </div>
     );
   }
