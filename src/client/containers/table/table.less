@@ -7,5 +7,27 @@
   }
   &-content {
     height: calc(~'100%' - 40px);
+    .fixed-row-table {
+      .vt-header {
+        color: #9ab9b9;
+      }
+      .fixed-row-0, .fixed-row-1 {
+        & > div:nth-child(2) {
+          background: linear-gradient(270deg, #673f11, #17242a) !important;
+        }
+        & > div:nth-child(3) {
+          background: linear-gradient(270deg, #b65a00, #673f11) !important;
+        }
+        & > div:nth-child(4) {
+          background: linear-gradient(90deg, #006f96, #0b4a5d) !important;
+        }
+        & > div:nth-child(5) {
+          background: linear-gradient(90deg, #0b4a5d, #17242a) !important;
+        }
+      }
+      .fixed-row-1 > .td {
+        border-bottom: 1px solid #0D7B7B;
+      }
+    }
   }
 }

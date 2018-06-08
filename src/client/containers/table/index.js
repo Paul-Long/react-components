@@ -1,10 +1,11 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Header from '@components/header';
 import BasicTable from './basic';
 import FixedHeaderTable from './fixed-header';
 import FixedHeaderAndColumnTable from './fixed-header-column';
 import TableAll from './all';
+import FixedRowTable from './fixed-row';
 import menus from './menus';
 import './table.less';
 
@@ -27,7 +28,7 @@ class TableTab extends React.Component<Props> {
   }
 
   render() {
-    const {prefixCls} = this.props;
+    const { prefixCls } = this.props;
     return (
       <div className={`${prefixCls}`}>
         <Header className={`${prefixCls}-header`} menus={menus} />
@@ -36,9 +37,10 @@ class TableTab extends React.Component<Props> {
           <Route path='/table/FixedHeader' component={FixedHeaderTable} />
           <Route path='/table/FixedHeaderAndColumn' component={FixedHeaderAndColumnTable} />
           <Route path='/table/all' component={TableAll} />
+          <Route path='/table/FixedRow' component={FixedRowTable} />
         </div>
       </div>
-    )
+    );
   }
 }
 
