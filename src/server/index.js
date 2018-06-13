@@ -4,6 +4,7 @@ const http = require('http').Server(app);
 const render = require('./render');
 const fs = require('fs');
 const config = require('../../webpack.config');
+const socket = require('./socket');
 
 let chunks = [];
 const isDev = process.env.NODE_ENV === 'development';
@@ -38,7 +39,8 @@ app.get('/**', function (req, res) {
   res.send(render(req, chunks));
 });
 
-http.listen(4000, function () {
+const server = http.listen(4000, function () {
   console.log('listening on http://localhost:4000/');
 });
 
+socket(server);

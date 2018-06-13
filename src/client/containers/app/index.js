@@ -1,7 +1,8 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import TableTab from '@containers/table';
 import CalendarTab from '@containers/calendar';
+import ChatTab from '@containers/chat';
 import Header from '@components/header';
 import menus from './menus';
 import './app.less';
@@ -20,16 +21,17 @@ class App extends React.Component<AppProps> {
   }
 
   render() {
-    const {prefixCls} = this.props;
+    const { prefixCls } = this.props;
     return (
       <div className={`${prefixCls}`}>
         <Header className={`${prefixCls}-header`} menus={menus} githubIcon />
         <div className={`${prefixCls}-content`}>
           <Route path='/table' component={TableTab} />
           <Route path='/calendar' component={CalendarTab} />
+          <Route path='/chat' component={ChatTab} />
         </div>
       </div>
-    )
+    );
   }
 }
 

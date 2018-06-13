@@ -27,6 +27,10 @@ class TableTab extends React.Component<Props> {
     }
   }
 
+  connected = () => {
+    this.worker.on('');
+  };
+
   render() {
     const { prefixCls } = this.props;
     return (
