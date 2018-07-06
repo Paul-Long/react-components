@@ -21,7 +21,8 @@ const columns = [
     title: '第一列',
     align: 'left',
     dataIndex: 'key',
-    width: 100
+    fixed: 'left',
+    width: 100,
   },
   {
     title: '第二列',
@@ -44,13 +45,14 @@ const columns = [
     title: '第五列',
     align: 'left',
     dataIndex: 'key3',
-    width: 120
+    width: 120,
   },
   {
     title: '第六列',
     align: 'left',
     dataIndex: 'key4',
     width: 100,
+    fixed: 'right'
   }
 ];
 const data = [];
