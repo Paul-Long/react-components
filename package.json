@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/Paul-Long/react-components#readme",
   "dependencies": {
-    "fast-table": "^1.3.6",
+    "fast-table": "^1.3.13",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.1",
     "rcc-calendar": "^1.0.6",

@@ -99,8 +99,39 @@ const columns = [
   {
     title: '第十列',
     align: 'left',
-    fixed: 'right',
     dataIndex: 'key13',
+    width: 200,
+  },
+  {
+    title: '第十一列',
+    align: 'left',
+    dataIndex: 'key14',
+    width: 200,
+  },{
+    title: '第十二列',
+    align: 'left',
+    dataIndex: 'key15',
+    width: 200,
+  },{
+    title: '第十三列',
+    align: 'left',
+    dataIndex: 'key16',
+    width: 200,
+  },{
+    title: '第十四列',
+    align: 'left',
+    dataIndex: 'key17',
+    width: 200,
+  },{
+    title: '第十五列',
+    align: 'left',
+    dataIndex: 'key18',
+    width: 200,
+  },{
+    title: '第十六列',
+    align: 'left',
+    fixed: 'right',
+    dataIndex: 'key19',
     width: 200,
   }
 ];
@@ -110,7 +141,7 @@ function update() {
 
   for (let i = 0; i < 1000; i++) {
     const row = {key: `${i}`};
-    for (let j = 0; j < 14; j++) {
+    for (let j = 0; j < 20; j++) {
       row[`key${j}`] = `R${i}-C${j}`;
     }
     const children = [];
