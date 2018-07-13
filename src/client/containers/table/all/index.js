@@ -185,9 +185,9 @@ class TableAll extends React.Component {
           fixedHeader
           showHeader
           bordered
+          hoverEnable={false}
           footer={() => '加载更多'}
           sortMulti={false}
-          expandedRowKeys={['0', '2']}
           onSort={(column, order) => {
             const data = this.state.data;
             this.setState({data: [...data].reverse()});
