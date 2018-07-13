@@ -1,7 +1,8 @@
 export default [
-  {title: 'BASIC', path: '/table/Basic'},
-  {title: 'FIXEDHEADER', path: '/table/FixedHeader'},
-  {title: 'FIXEDHEADERANDCOLUMN', path: '/table/FixedHeaderAndColumn'},
   {title: 'ALL', path: '/table/all'},
-  {title: 'FIXEDROW', path: '/table/FixedRow'}
+  {title: 'BASIC', path: '/table/Basic'},
+  {title: 'FIXED-ROW', path: '/table/FixedRow'},
+  {title: 'ROW-EVENT', path: '/table/RowEvent'},
+  {title: 'FIXED-HEADER', path: '/table/FixedHeader'},
+  {title: 'FIXED-HEADER-AND-COLUMN', path: '/table/FixedHeaderAndColumn'},
 ]

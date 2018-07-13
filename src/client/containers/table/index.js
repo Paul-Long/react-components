@@ -6,6 +6,7 @@ import FixedHeaderTable from './fixed-header';
 import FixedHeaderAndColumnTable from './fixed-header-column';
 import TableAll from './all';
 import FixedRowTable from './fixed-row';
+import RowEvent from './row-event';
 import menus from './menus';
 import './table.less';
 
@@ -42,6 +43,7 @@ class TableTab extends React.Component<Props> {
           <Route path='/table/FixedHeaderAndColumn' component={FixedHeaderAndColumnTable} />
           <Route path='/table/all' component={TableAll} />
           <Route path='/table/FixedRow' component={FixedRowTable} />
+          <Route path='/table/RowEvent' component={RowEvent} />
         </div>
       </div>
     );
