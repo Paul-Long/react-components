@@ -4,6 +4,7 @@ const http = require('http').Server(app);
 const render = require('./render');
 const fs = require('fs');
 const config = require('../../webpack.config');
+const path = require('path');
 const socket = require('./socket');
 
 let chunks = [];

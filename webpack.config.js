@@ -48,7 +48,15 @@ config.module = {
       test: /\.(less|css)$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: ['css-loader', 'postcss-loader', 'less-loader']
+        use: [
+          'css-loader', 'postcss-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              // javascriptEnabled: true
+            }
+          }
+        ]
       })
     }, {
       test: /\.(png|jpe?g|gif)$/,
