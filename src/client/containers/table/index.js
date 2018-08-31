@@ -7,6 +7,7 @@ import FixedHeaderAndColumnTable from './fixed-header-column';
 import TableAll from './all';
 import FixedRowTable from './fixed-row';
 import RowEvent from './row-event';
+import ExpandedRowRender from './expanded-row-render';
 import menus from './menus';
 import './table.less';
 
@@ -33,7 +34,7 @@ class TableTab extends React.Component<Props> {
   };
 
   render() {
-    const { prefixCls } = this.props;
+    const {prefixCls} = this.props;
     return (
       <div className={`${prefixCls}`}>
         <Header className={`${prefixCls}-header`} menus={menus} />
@@ -44,6 +45,7 @@ class TableTab extends React.Component<Props> {
           <Route path='/table/all' component={TableAll} />
           <Route path='/table/FixedRow' component={FixedRowTable} />
           <Route path='/table/RowEvent' component={RowEvent} />
+          <Route path='/table/ExpandedRowRender' component={ExpandedRowRender} />
         </div>
       </div>
     );

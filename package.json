@@ -46,7 +46,7 @@
   "dependencies": {
     "antd": "^3.7.1",
     "babel-plugin-import": "^1.8.0",
-    "fast-table": "^1.4.1",
+    "fast-table": "^1.4.2",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.1",
     "rcc-calendar": "^1.0.6",
