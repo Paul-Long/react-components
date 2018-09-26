@@ -6,8 +6,8 @@ module.exports = (req, chunks) => {
     .meta({charset: 'utf-8'})
     .meta({name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no'})
     .meta({name: 'theme-color', content: '#000000'})
-    .link({rel: 'shortcut icon', href: '/favicon.ico'})
-    .title('table-virtualized')
+    .link({rel: 'shortcut icon', href: 'http://houym-1254119810.cossh.myqcloud.com/favicon.ico'})
+    .title('React Components')
     .container('div')
     .toString();
 };

@@ -123,7 +123,6 @@ if (ENV === 'production') {
     new HtmlWebpackPlugin({
       title: 'React Components',
       filename: '../index.html',
-      favicon: './src/server/favicon.ico',
       template: './src/server/index.html',
       inject: true,
       chunksSortMode: function (chunk1, chunk2) {
