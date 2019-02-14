@@ -104,6 +104,7 @@ config.plugins = [
     title: 'React Components',
     filename: '../index.html',
     template: path.resolve(__dirname, 'src/server/index.html'),
+    favicon: path.resolve(__dirname, 'src/server/favicon.ico'),
     inject: true,
     minify: {
       removeComments: false,
