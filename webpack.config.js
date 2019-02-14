@@ -65,7 +65,7 @@ config.module = {
         options: {
           limit: 8192,
           name: 'img/[name].[hash:8].[ext]',
-          publicPath: '..'
+          publicPath: 'static'
         }
       } ]
     }, {
