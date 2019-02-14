@@ -46,7 +46,7 @@
   "dependencies": {
     "antd": "^3.7.1",
     "babel-plugin-import": "^1.8.0",
-    "fast-table": "^1.4.3",
+    "fast-table": "^1.4.5",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.1",
     "rcc-calendar": "^1.0.6",
@@ -58,6 +58,7 @@
     "sswc": "^1.0.2"
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.2.5",
     "add-dom-event-listener": "^1.0.2",
     "autoprefixer": "^8.1.0",
     "babel-core": "^6.26.0",
@@ -89,7 +90,7 @@
     "moment": "^2.22.2",
     "postcss-cli": "^5.0.0",
     "postcss-loader": "^2.1.2",
-    "render-template": "^1.0.3",
+    "render-template": "^1.0.4",
     "shallowequal": "^1.0.2",
     "stats-out-plugin": "^1.0.1",
     "style-loader": "^0.21.0",

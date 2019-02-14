@@ -40,7 +40,7 @@ app.get('/**', function (req, res) {
   res.send(render(req, chunks));
 });
 
-const server = http.listen(4004, function () {
+const server = http.listen(4000, function () {
   console.log('listening on http://localhost:4000/');
 });
 

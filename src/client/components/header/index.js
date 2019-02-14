@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import fluidIcon from './fluidicon.png';
 import './header.less';
 
 type Props = {
@@ -25,7 +26,7 @@ function Header(props: Props) {
       ))}
       {githubIcon && (
         <a className={`${className}-github`} href='https://github.com/Paul-Long/react-components' target='_blank'>
-          <img src='https://github.com/fluidicon.png' width={32} height={32} title='查看源码' />
+          <img src={fluidIcon} width={32} height={32} title='查看源码' />
         </a>
       )}
     </div>

@@ -60,13 +60,20 @@ config.module = {
       })
     }, {
       test: /\.(png|jpe?g|gif)$/,
-      use: 'url-loader?limit=100&name=img/[name].[hash:8].[ext]'
+      use: [ {
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          name: 'img/[name].[hash:8].[ext]',
+          publicPath: '..'
+        }
+      } ]
     }, {
       test: /\.(ttf|svg|eot|woff)$/,
-      use: 'url-loader?limit=100&name=fonts/[name].[hash:8].[ext]'
+      use: 'url-loader?limit=100&name=/fonts/[name].[hash:8].[ext]'
     }, {
       test: /\.(svg)$/,
-      use: 'svg-sprite-loader?limit=100&name=svg/[name].[hash:8].[ext]'
+      use: 'svg-sprite-loader?limit=100&name=/svg/[name].[hash:8].[ext]'
     }
   ]
 };
@@ -83,24 +90,46 @@ config.plugins = [
   new webpack.LoaderOptionsPlugin({
     minimize: ENV === 'production'
   }),
+  new webpack.HashedModuleIdsPlugin(),
+  new webpack.ContextReplacementPlugin(
+    /moment[\\\/]locale$/,
+    /^\.\/(zh-cn)$/
+  ),
   new HappyPack({
     id: 'js',
     threadPool: happyThreadPool,
     loaders: ['babel-loader']
   }),
-  new webpack.HashedModuleIdsPlugin()
+  new HtmlWebpackPlugin({
+    title: 'React Components',
+    filename: '../index.html',
+    template: path.resolve(__dirname, 'src/server/index.html'),
+    inject: true,
+    minify: {
+      removeComments: false,
+      collapseWhitespace: ENV !== 'production',
+    },
+  }),
 ];
 
 // optimization
 config.optimization = {
   splitChunks: {
-    chunks: 'all',
-    name: 'common',
-    minSize: 0,
-    minChunks: 1
-  },
-  runtimeChunk: {
-    name: 'runtime'
+    cacheGroups: {
+      // 处理入口chunk
+      vendors: {
+        test: /[\\/]node_modules[\\/]/,
+        chunks: 'initial',
+        name: 'vendors',
+      },
+      // 处理异步chunk
+      'async-vendors': {
+        test: /[\\/]node_modules[\\/]/,
+        minChunks: 2,
+        chunks: 'async',
+        name: 'async-vendors'
+      }
+    }
   }
 };
 
@@ -116,24 +145,8 @@ if (ENV === 'production') {
   config.optimization.minimize = true;
   config.optimization.noEmitOnErrors = true;
   config.optimization.concatenateModules = true;
-
   const stats = new StatsOutPlugin('chunkNames.json', {});
   config.plugins.push(stats);
-  config.plugins.push(
-    new HtmlWebpackPlugin({
-      title: 'React Components',
-      filename: '../index.html',
-      template: './src/server/index.html',
-      inject: true,
-      chunksSortMode: function (chunk1, chunk2) {
-        const order = ['runtime', 'common', 'app'];
-        const order1 = order.indexOf(chunk1.names[0]);
-        const order2 = order.indexOf(chunk2.names[0]);
-        return order1 - order2;
-      }
-    }),
-  );
-
   // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
   // config.plugins.push(new BundleAnalyzerPlugin());
 }
