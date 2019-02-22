@@ -83,7 +83,6 @@ config.plugins = [
   new CaseSensitivePathsPlugin(),
   new CleanPlugin([path.resolve(__dirname, 'dist')], {verbose: true}),
   new ExtractTextPlugin({filename: '[name].[contenthash:8].css', allChunks: true}),
-  new webpack.optimize.ModuleConcatenationPlugin(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(ENV)
   }),

@@ -2,8 +2,6 @@ import React from 'react';
 import SharedWorker from 'sswc';
 import {Button, message} from 'antd';
 
-const Message = message;
-
 class Chat extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -43,17 +41,17 @@ class Chat extends React.PureComponent {
   };
 
   render() {
-    const { message, connected } = this.state;
+    const { connected } = this.state;
     return (
       <div>
         <div>
           <input type='text' onChange={this.handleChange} />
           <button onClick={this.handleClick} disabled={!connected}>发送</button>
           <Button onClick={() => {
-            Message.success('show message');
+            message.success('show message');
           }}>message</Button>
         </div>
-        {message.map((m, i) => (<p key={i}>{m}</p>))}
+        {this.state.message.map((m, i) => (<p key={i}>{m}</p>))}
       </div>
     );
   }
