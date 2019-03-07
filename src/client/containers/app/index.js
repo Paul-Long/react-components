@@ -6,6 +6,7 @@ import ChatTab from '@containers/chat';
 import TreeTab from '@containers/tree';
 import CheckboxTab from '@containers/checkbox';
 import TriggerTab from '@containers/trigger';
+import MonitorTab from '@containers/monitor';
 import Header from '@components/header';
 import menus from './menus';
 import './app.less';
@@ -35,6 +36,7 @@ class App extends React.Component<AppProps> {
           <Route path='/tree' component={TreeTab} />
           <Route path='/checkbox' component={CheckboxTab} />
           <Route path='/trigger' component={TriggerTab} />
+          <Route path='/monitor' component={MonitorTab} />
         </div>
       </div>
     );

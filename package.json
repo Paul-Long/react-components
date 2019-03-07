@@ -45,8 +45,10 @@
   "homepage": "https://github.com/Paul-Long/react-components#readme",
   "dependencies": {
     "antd": "^3.8.4",
+    "axios": "^0.18.0",
     "babel-plugin-import": "^1.8.0",
-    "fast-table": "^1.4.6",
+    "echarts": "^4.1.0",
+    "fast-table": "1.4.7-beta.0",
     "frc-checkbox": "^1.0.4-beta.0",
     "frc-scroll-size": "^1.0.0",
     "frc-tree": "^1.0.0-beta.0",

@@ -2,12 +2,37 @@ import React from 'react';
 import Table from 'fast-table';
 
 class BasicTable extends React.Component {
+  state = {
+    headerSortable: false
+  };
+  componentDidMount() {
+    document.addEventListener('keydown', this.onKeyDown);
+    document.addEventListener('keyup', this.onKeyUp);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.onKeyDown);
+    document.removeEventListener('keyup', this.onKeyUp);
+  }
+  onKeyDown = (event) => {
+    if (event.keyCode === 17) {
+      this.setState({headerSortable: true});
+    }
+  };
+
+  onKeyUp = (event) => {
+    if (event.keyCode === 17) {
+      this.setState({headerSortable: false});
+    }
+  };
+
   render() {
+    const {headerSortable} = this.state;
     return (
       <Table
         columns={columns}
         dataSource={data}
-        fixedHeader={false}
+        fixedHeader={true}
+        headerSortable={headerSortable}
         showHeader
         bordered
       />

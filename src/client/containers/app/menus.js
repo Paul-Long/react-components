@@ -4,5 +4,6 @@ export default [
   {title: 'CHAT', path: '/chat'},
   {title: 'TREE', path: '/tree'},
   {title: 'CHECKBOX', path: '/checkbox'},
-  {title: 'TRIGGER', path: '/trigger'}
+  {title: 'TRIGGER', path: '/trigger'},
+  {title: 'MONITOR', path: '/monitor'}
 ]
