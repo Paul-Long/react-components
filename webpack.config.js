@@ -6,17 +6,20 @@ const HappyPack = require('happypack');
 const happyThreadPool = HappyPack.ThreadPool({size: cpus});
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.NODE_ENV;
+
+const node_modules = path.resolve(__dirname, 'node_modules');
 
 const config = {
   cache: true,
   entry: path.resolve(__dirname, 'src/client/index.js'),
   output: {
-    path: path.resolve(__dirname, 'dist/static'),
-    filename: '[name].[hash:8].js',
-    publicPath: 'static'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'static/[name].[hash:8].js',
+    publicPath: ''
   },
   resolve: {
     modules: [
@@ -61,16 +64,15 @@ config.module = {
         loader: 'url-loader',
         options: {
           limit: 8192,
-          name: 'img/[name].[hash:8].[ext]',
-          publicPath: 'static'
+          name: 'static/img/[name].[hash:8].[ext]'
         }
       } ]
     }, {
       test: /\.(ttf|svg|eot|woff)$/,
-      use: 'url-loader?limit=100&name=/fonts/[name].[hash:8].[ext]'
+      use: 'url-loader?limit=100&name=static/fonts/[name].[hash:8].[ext]'
     }, {
       test: /\.(svg)$/,
-      use: 'svg-sprite-loader?limit=100&name=/svg/[name].[hash:8].[ext]'
+      use: 'svg-sprite-loader?limit=100&name=static/svg/[name].[hash:8].[ext]'
     }
   ]
 };
@@ -79,7 +81,7 @@ config.module = {
 config.plugins = [
   new CaseSensitivePathsPlugin(),
   new CleanPlugin([ path.resolve(__dirname, 'dist') ], {verbose: true}),
-  new ExtractTextPlugin({filename: '[name].[hash:8].css', allChunks: true}),
+  new ExtractTextPlugin({filename: 'static/[name].[hash:8].css', allChunks: true}),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(ENV)
   }),
@@ -99,7 +101,7 @@ config.plugins = [
   }),
   new HtmlWebpackPlugin({
     title: 'React Components',
-    filename: ENV === 'production' ? '../index.html' : 'index.html',
+    filename: 'index.html',
     template: path.resolve(__dirname, 'src/server/index.html'),
     favicon: path.resolve(__dirname, 'src/server/favicon.ico'),
     inject: true,
@@ -108,6 +110,12 @@ config.plugins = [
       collapseWhitespace: ENV !== 'production',
     },
   }),
+  new CopyWebpackPlugin([
+    {
+      from: path.resolve(node_modules, 'babel-polyfill/dist/polyfill.min.js'),
+      to: path.resolve(__dirname, 'dist/static')
+    }
+  ])
 ];
 
 // optimization
