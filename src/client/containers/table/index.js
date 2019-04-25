@@ -8,6 +8,7 @@ import TableAll from './all';
 import FixedRowTable from './fixed-row';
 import RowEvent from './row-event';
 import ExpandedRowRender from './expanded-row-render';
+import GroupCell from './group-cell';
 import menus from './menus';
 import './table.less';
 
@@ -46,6 +47,7 @@ class TableTab extends React.Component<Props> {
           <Route path='/table/FixedRow' component={FixedRowTable} />
           <Route path='/table/RowEvent' component={RowEvent} />
           <Route path='/table/ExpandedRowRender' component={ExpandedRowRender} />
+          <Route path='/table/GroupCell' component={GroupCell} />
         </div>
       </div>
     );

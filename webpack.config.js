@@ -6,16 +6,13 @@ const HappyPack = require('happypack');
 const happyThreadPool = HappyPack.ThreadPool({size: cpus});
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const StatsOutPlugin = require('stats-out-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.NODE_ENV;
 
 const config = {
   cache: true,
-  entry: {
-    app: path.resolve(__dirname, 'src/client/index.js')
-  },
+  entry: path.resolve(__dirname, 'src/client/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist/static'),
     filename: '[name].[hash:8].js',
@@ -81,8 +78,8 @@ config.module = {
 // plugins
 config.plugins = [
   new CaseSensitivePathsPlugin(),
-  new CleanPlugin([path.resolve(__dirname, 'dist')], {verbose: true}),
-  new ExtractTextPlugin({filename: '[name].[contenthash:8].css', allChunks: true}),
+  new CleanPlugin([ path.resolve(__dirname, 'dist') ], {verbose: true}),
+  new ExtractTextPlugin({filename: '[name].[hash:8].css', allChunks: true}),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(ENV)
   }),
@@ -97,11 +94,12 @@ config.plugins = [
   new HappyPack({
     id: 'js',
     threadPool: happyThreadPool,
-    loaders: ['babel-loader']
+    loaders: [ 'babel-loader' ],
+    verboseWhenProfiling: true
   }),
   new HtmlWebpackPlugin({
     title: 'React Components',
-    filename: '../index.html',
+    filename: ENV === 'production' ? '../index.html' : 'index.html',
     template: path.resolve(__dirname, 'src/server/index.html'),
     favicon: path.resolve(__dirname, 'src/server/favicon.ico'),
     inject: true,
@@ -133,20 +131,29 @@ config.optimization = {
   }
 };
 
+config.mode = ENV;
 if (ENV === 'development') {
   config.devtool = 'eval-source-map';
   config.output.path = path.resolve(__dirname, 'dist');
   config.output.publicPath = '/';
-  config.entry.app = ['webpack-hot-middleware/client?reload=true', config.entry.app];
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
+  config.devServer = {
+    contentBase: config.output.path,
+    port: 4000,
+    index: `index.html`,
+    hot: true,
+    https: false,
+    historyApiFallback: {
+      index: 'index.html'
+    }
+  };
+
 }
 
 if (ENV === 'production') {
   config.optimization.minimize = true;
   config.optimization.noEmitOnErrors = true;
   config.optimization.concatenateModules = true;
-  const stats = new StatsOutPlugin('chunkNames.json', {});
-  config.plugins.push(stats);
   // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
   // config.plugins.push(new BundleAnalyzerPlugin());
 }
