@@ -33,6 +33,7 @@ class BasicTable extends React.Component {
         dataSource={data}
         fixedHeader={true}
         headerSortable={headerSortable}
+        colMinWidth={80}
         showHeader
         bordered
       />

@@ -141,6 +141,7 @@ const columns1 = [ {
   dataIndex: 'quanzhong',
   title: '券种',
   align: 'center',
+  width: 80,
   onHeaderCell: () => ({background: '#373C49', color: 'white'}),
   onCell: () => ({background: '#373C49', color: 'white'})
 } ];

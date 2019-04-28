@@ -49,7 +49,7 @@
     "babel-plugin-import": "^1.8.0",
     "clipboard": "^2.0.4",
     "echarts": "^4.1.0",
-    "fast-table": "1.4.8-beta.9",
+    "fast-table": "1.4.8-beta.13",
     "frc-checkbox": "^1.0.4-beta.0",
     "frc-scroll-size": "^1.0.2",
     "frc-tree": "^1.0.0-beta.0",
