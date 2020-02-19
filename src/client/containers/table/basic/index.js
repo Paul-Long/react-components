@@ -83,7 +83,7 @@ const columns = [
 ];
 const data = [];
 
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 100000; i++) {
   const row = {key: `${i}`};
   for (let j = 0; j < 6; j++) {
     row[`key${j}`] = Math.random().toString(36).substr(2);
