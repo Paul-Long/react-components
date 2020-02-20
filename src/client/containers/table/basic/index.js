@@ -6,12 +6,12 @@ class BasicTable extends React.Component {
     headerSortable: false
   };
   componentDidMount() {
-    document.addEventListener('keydown', this.onKeyDown);
-    document.addEventListener('keyup', this.onKeyUp);
+    // document.addEventListener('keydown', this.onKeyDown);
+    // document.addEventListener('keyup', this.onKeyUp);
   }
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.onKeyDown);
-    document.removeEventListener('keyup', this.onKeyUp);
+    // document.removeEventListener('keydown', this.onKeyDown);
+    // document.removeEventListener('keyup', this.onKeyUp);
   }
   onKeyDown = (event) => {
     if (event.keyCode === 17) {
@@ -49,44 +49,47 @@ const columns = [
     dataIndex: 'key',
     fixed: 'left',
     width: 100,
+    render: (t, r) => `R${r.key}:C1`
   },
   {
     title: '第二列',
     dataIndex: 'key0',
     width: 100,
-    sortEnable: true
+    sortEnable: true,
+    render: (t, r) => `R${r.key}:C2`
   },
   {
     title: '第三列',
     dataIndex: 'key1',
-    width: 100
+    width: 100,
+    render: (t, r) => `R${r.key}:C3`
   },
   {
     title: '第四列',
     align: 'left',
     dataIndex: 'key2',
-    width: 130
+    width: 130,
+    render: (t, r) => `R${r.key}:C4`
   },
   {
     title: '第五列',
     align: 'left',
     dataIndex: 'key3',
     width: 120,
+    render: (t, r) => `R${r.key}:C5`
   },
   {
     title: '第六列',
     align: 'left',
     dataIndex: 'key4',
     width: 100,
-    fixed: 'right'
+    fixed: 'right',
+    render: (t, r) => `R${r.key}:C6`
   }
 ];
 const data = [];
 
-for (let i = 0; i < 100000; i++) {
+for (let i = 0; i < 1000000; i++) {
   const row = {key: `${i}`};
-  for (let j = 0; j < 6; j++) {
-    row[`key${j}`] = Math.random().toString(36).substr(2);
-  }
   data.push(row);
 }
