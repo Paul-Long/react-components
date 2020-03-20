@@ -186,20 +186,20 @@ const time = new Date().getTime();
 function update() {
   const data = [];
 
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < 559242; i++) {
     const row = {key: `${i}`};
-    for (let j = 0; j < 20; j++) {
-      row[ `key${j}` ] = `R${i}-C${j}-${Math.floor(Math.random() * 100)}`;
-    }
-    const children = [];
-    for (let c = 0; c < 5; c++) {
-      const r = {key: `${i}-${c}`};
-      for (let j = 0; j < 14; j++) {
-        r[ `key${j}` ] = `R${i}-${c}-C${j}-${Math.floor(Math.random() * 100)}`;
-      }
-      children.push(r);
-    }
-    row.children = children;
+    // for (let j = 0; j < 20; j++) {
+    //   row[ `key${j}` ] = `R${i}-C${j}-${Math.floor(Math.random() * 100)}`;
+    // }
+    // const children = [];
+    // for (let c = 0; c < 5; c++) {
+    //   const r = {key: `${i}-${c}`};
+    //   for (let j = 0; j < 14; j++) {
+    //     r[ `key${j}` ] = `R${i}-${c}-C${j}-${Math.floor(Math.random() * 100)}`;
+    //   }
+    //   children.push(r);
+    // }
+    // row.children = children;
     data.push(row);
   }
   return data;

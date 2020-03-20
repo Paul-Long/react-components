@@ -22,7 +22,7 @@ const columns = [
     align: 'left',
     fixed: 'left',
     dataIndex: 'key',
-    width: 400
+    width: 100
   },
   {
     title: '第二列',

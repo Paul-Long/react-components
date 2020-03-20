@@ -6,12 +6,12 @@ class BasicTable extends React.Component {
     headerSortable: false
   };
   componentDidMount() {
-    // document.addEventListener('keydown', this.onKeyDown);
-    // document.addEventListener('keyup', this.onKeyUp);
+    document.addEventListener('keydown', this.onKeyDown);
+    document.addEventListener('keyup', this.onKeyUp);
   }
   componentWillUnmount() {
-    // document.removeEventListener('keydown', this.onKeyDown);
-    // document.removeEventListener('keyup', this.onKeyUp);
+    document.removeEventListener('keydown', this.onKeyDown);
+    document.removeEventListener('keyup', this.onKeyUp);
   }
   onKeyDown = (event) => {
     if (event.keyCode === 17) {
@@ -89,7 +89,7 @@ const columns = [
 ];
 const data = [];
 
-for (let i = 0; i < 1000000; i++) {
+for (let i = 0; i < 559242; i++) {
   const row = {key: `${i}`};
   data.push(row);
 }
