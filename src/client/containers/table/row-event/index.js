@@ -33,6 +33,11 @@ class RowEvent extends React.PureComponent {
         showHeader
         bordered
         onRow={this.handleRow}
+        rowSelection={() => {
+          return {
+            type: 'checkbox'
+          }
+        }}
       />
     );
   }

@@ -9,13 +9,8 @@
     "lodash",
     "syntax-dynamic-import",
     "transform-decorators-legacy",
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": true
-      }
-    ],
+    [ "import", { "libraryName": "antd", "style": true }, "antd" ],
+    [ "import", { "libraryName": "frc-ui", "style": true }, "frc-ui" ],
     [
       "transform-runtime",
       {

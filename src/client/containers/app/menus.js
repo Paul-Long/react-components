@@ -5,5 +5,6 @@ export default [
   // {title: 'TREE', path: '/tree'},
   // {title: 'CHECKBOX', path: '/checkbox'},
   // {title: 'TRIGGER', path: '/trigger'},
-  {title: 'MONITOR', path: '/monitor'}
+  {title: 'MONITOR', path: '/monitor'},
+  {title: 'SELECT-MENU', path: '/select-menu'}
 ]

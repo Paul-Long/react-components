@@ -4,6 +4,7 @@ import TableTab from '@containers/table';
 import CalendarTab from '@containers/calendar';
 import MonitorTab from '@containers/monitor';
 import Header from '@components/header';
+import SelectMenu from '@containers/select-menu';
 import menus from './menus';
 import './app.less';
 
@@ -33,6 +34,7 @@ class App extends React.Component<AppProps> {
           {/*<Route path='/checkbox' component={CheckboxTab} />*/}
           {/*<Route path='/trigger' component={TriggerTab} />*/}
           <Route path='/monitor' component={MonitorTab} />
+          <Route path='/select-menu' component={SelectMenu} />
         </div>
       </div>
     );

@@ -18,6 +18,7 @@ const columns = [
     title: '第二列',
     width: 100,
     sortEnable: true,
+    fixed: 'left',
     // onCell: () => ({background: '#1E1F17', color: '#FF9200'}),
     children: [
       {
@@ -52,6 +53,7 @@ const columns = [
             align: 'right',
             dataIndex: 'key4',
             width: '5%',
+            minWidth: 500
             // render: text => (<span style={{color: colors[ Math.floor(Math.random() * 10 / 3) ]}}>{text}</span>)
           }
         ]
